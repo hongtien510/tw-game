@@ -1,0 +1,110 @@
+
+.container {
+    margin: 100px auto 0;
+    position: relative;
+}
+.content {
+}
+ul.game {
+}
+ul.game li {
+    background-image: url("background.png");
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    display: table;
+    float: left;
+    margin: 1.65%;
+    padding: 7% 0;
+    position: relative;
+    text-align: center;
+    width: 30%;
+    box-shadow: 1px 1px 7px #777;
+}
+ul.game li:last-child {
+    float: right;
+}
+ul.game li span {
+    color: #333;
+    display: table-cell;
+    font-family: tahoma;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.message {
+    background: none repeat scroll 0 0 #428bca;
+    border-radius: 5px;
+    color: #fff;
+    padding: 7px 0px;
+    position: absolute;
+    top: -75px;
+    width: 100%;
+}
+.message span{margin:0px 10px; display:block;}
+.count_down{
+    color: #fff;
+    display: inline-block;
+    font-family: tahoma;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: -76px;
+    z-index: 100;
+}
+.nclick{
+    color: #428bca;
+    display: block;
+    font-family: tahoma;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    width: 5%;
+}
+@media (min-width: 769px) {
+    .container{width:70% !important}
+    ul.game li span {font-size:150px !important}
+}
+@media (max-width: 768px) {
+    .container{width:100% !important}
+    ul.game li span {font-size:150px !important}
+}
+@media (max-width: 480px) {
+    .container{width:100% !important}
+    ul.game li span {font-size:100px !important}
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

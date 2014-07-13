@@ -1,0 +1,3 @@
+award_1	10
+award_2	20
+award_3	19

@@ -1,0 +1,3 @@
+award_a	4
+award_b	6
+award_c	5
