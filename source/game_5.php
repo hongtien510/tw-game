@@ -10,20 +10,20 @@
         <link href="css/reset.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
         <script src="js/jquery-1.8.0.min.js"></script>
-        <script src="js/main_5_2.js"></script>
+        <script src="js/main_5.js"></script>
     </head>
     <body>
     <span style="display:none" class="num_click">0</span>
     <div class="container">
         <div class="content">
             <ul class="game">
-                <li class="slot_1"><span>0</span></li>
+                <li class="slot_1"><span><img number='1' src="images/dv1.jpg" /></span></li>
                 <li class="slot_2">
-                    <span>0</span>
+                    <span><img number='1' src="images/dv1.jpg" /></span>
                     <input class="input_num" type="text" name="input_slot_2" />
                 </li>
                 <li class="slot_3">
-                    <span>0</span>
+                    <span><img number='1' src="images/dv1.jpg" /></span>
                     <input class="input_num" type="text" name="input_slot_3" />    
                 </li>
             </ul>
