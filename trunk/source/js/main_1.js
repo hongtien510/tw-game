@@ -1,5 +1,5 @@
 $(document).ready(function(){ 
-    message('Hãy Click chuột nhiều lần để xác suất trúng cao hơn...');
+    message('Click chuột để bắt đầu...');
     $('body').click(function(){
         var num_click = $('.num_click').html();
         num_click = parseInt(num_click);
@@ -9,6 +9,7 @@ $(document).ready(function(){
             $('ul.game li').css('box-shadow','1px 1px 7px #777');
             message('Chờ kết quả...');
             timecountdown(5);
+            startup();
         }
         num_click = num_click + 1;
         $('.num_click').html(num_click);
@@ -16,19 +17,18 @@ $(document).ready(function(){
     
 });
 
-function startup(num_max)
+function startup()
 {
-    stop_slot_1 = random_number('slot_1', 100, num_max);
-    stop_slot_2 = random_number('slot_2', 100, num_max);
-    stop_slot_3 = random_number('slot_3', 100, num_max);
+    stop_slot_1 = random_number('slot_1', 100);
+    stop_slot_2 = random_number('slot_2', 100);
+    stop_slot_3 = random_number('slot_3', 100);
 }
 
-function random_number(slot, time, num_max)
+function random_number(slot, time)
 {
     time_slot = setInterval(function () {
-        var num = Math.floor((Math.random() * num_max) + 1);
-        var src = "images/dv" + num + ".jpg";
-        $('.'+slot+' span').html("<img number='"+num+"' src='"+src+"'/>");
+        var num = Math.floor((Math.random() * 9) + 1);
+        $('.'+slot+' span').html(num);
 	}, time);
     return time_slot;
 }
@@ -49,25 +49,6 @@ function timecountdown(count)
         $('.count_down').html(count);
         if(count == 0 )
         {
-            $('.nclick').removeClass('num_click');
-            var num_click = $('.nclick').html();
-            var num_max = 9 - ((num_click - (num_click%10))/10);
-            startup(num_max);
-            timecountdown_2(5);
-        }
-	}, 1000);
-}
-
-function timecountdown_2(count)
-{
-    timer = setInterval(function () {
-        count = count - 1;
-        if(parseInt(count) < 0) return false;
-        $('.count_down').html(count);
-        if(count == 0 )
-        {
-            $('.nclick').addClass('num_click');
-            $('.nclick').html('0');
             $('.count_down').html('');
             clearInterval(timer);
             clearInterval(stop_slot_1);
@@ -80,16 +61,15 @@ function timecountdown_2(count)
         		success:function(data){
         			if(data == 0)
                     {
-                        var val_slot_1 = $('.slot_1 img').attr('number');
-                        var val_slot_2 = $('.slot_2 img').attr('number');
+                        var val_slot_1 = $('li.slot_1 span').html();
+                        var val_slot_2 = $('li.slot_2 span').html();
                         if(val_slot_1 == val_slot_2)
                         {
                             //TRUONG HOP GIA THUONG DA HET, HINH_3 KHONG CON LAY GIA TRI NGAU NHIEN NUA
                             //MA BAT BUOC GAN BANG GIA TRI CUA HINH_1 + 1 HOAC HINH_1 - 1
                             val_slot_3 = parseInt(val_slot_1) + 1 == 10 ? 0 : parseInt(val_slot_1) + 1;
                             clearInterval(stop_slot_3);
-                            var src = "images/dv" + val_slot_3 + ".jpg";
-                            $('li.slot_3 span').html("<img number='"+val_slot_3+"' src='"+src+"'/>");
+                            $('li.slot_3 span').html(val_slot_3);
                             result();
                         }
                         else
@@ -113,9 +93,9 @@ function timecountdown_2(count)
 
 function result()
 {
-    var rs_slot_1 = $('.slot_1 img').attr('number');
-    var rs_slot_2 = $('.slot_2 img').attr('number');
-    var rs_slot_3 = $('.slot_3 img').attr('number');
+    var rs_slot_1 = $('.slot_1 span').html();
+    var rs_slot_2 = $('.slot_2 span').html();
+    var rs_slot_3 = $('.slot_3 span').html();
     if((rs_slot_1 == rs_slot_2) && (rs_slot_1 == rs_slot_3))
     {
         $.ajax({
